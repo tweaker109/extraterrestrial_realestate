@@ -2,8 +2,9 @@
 
 // Example data (replace with actual data from your backend)
 const landListings = [
-    { id: 1, title: 'Beautiful Countryside Acreage', price: 50000 },
-    { id: 2, title: 'Prime Urban Development Lot', price: 100000 },
+    { id: 1, title: '132 Acres - Neptune', price: 50310 },
+    { id: 2, title: '22 Acres - Neptune', price: 12000 },
+    { id: 3, title: '16 Acres - Uranus', price: 9250 },
     // Add more listings as needed
 ];
 
