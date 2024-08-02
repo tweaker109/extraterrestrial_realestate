@@ -3,32 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extra Terrestrial Land for Sale</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Python Script Output</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, black, gray);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 1.2rem;
+        }
+        .timer {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
+    <h1>Python Script Output</h1>
+    <div class="timer" id="timer">Loading timer...</div>
+    <pre id="output">Loading output...</pre>
 
-    <header>
-        <h1 style="font-size: 35px;font-style: normal;">Purchase Extra Terrestrial Land</h1>
-    </header>
+    <script>
+        function updateTimer() {
+            const startTime = new Date();
+            function update() {
+                const now = new Date();
+                const elapsed = Math.floor((now - startTime) / 1000); // seconds
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                document.getElementById('timer').textContent = `Timer: ${minutes}m ${seconds}s`;
+            }
+            setInterval(update, 1000);
+        }
 
-    <main>
-        <section>
-            <div style="background-color: rgb(173, 212, 246); border-radius: 10px; border: none; padding-top: 5px; padding-bottom: 5px; padding-left: 15px;">
-            <h style="font-size: 25px; font-style: bold;">
-                124 Acres - pluto
-            </h>
-            <p>
-                $35,000
-            </p>
-            <div>
-            <img src="pluto.png">
-            </div>
-            <button style="background-color: white; border: none;border-radius: 10px;">
-                purchase
-            </button>
-            </div>
-        </section>
-    </main>
+        // Fetch the output file from the GitHub Pages repository
+        fetch('output.txt')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('output').textContent = text;
+            })
+            .catch(error => {
+                document.getElementById('output').textContent = 'Error fetching the output file.';
+            });
+
+        // Start the timer
+        updateTimer();
+    </script>
 </body>
 </html>
